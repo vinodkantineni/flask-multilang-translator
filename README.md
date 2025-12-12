@@ -70,5 +70,3 @@ This project uses the free tier of the **MyMemory API**.
 
 The application includes a feedback button (exclamation mark icon) at the bottom right.
 - Submitting the feedback form saves the data (Timestamp, Name, Email, Problem, Suggestion) to `feedback.csv` in the root directory.
-
-
