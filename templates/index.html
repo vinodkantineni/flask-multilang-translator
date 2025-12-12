@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TranslateX</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header>
+            <div class="logo">TranslateX</div>
+            <div class="header-controls">
+                <span class="theme-label">Enable Dark mode</span>
+                <label class="switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </header>
+
+        <!-- Mode Toggle -->
+        <div class="mode-container">
+            <div class="mode-switch">
+                <input type="radio" id="text-mode" name="mode" checked>
+                <label for="text-mode" class="mode-label">
+                    <i class="fas fa-keyboard"></i> Text mode
+                </label>
+
+                <input type="radio" id="voice-mode" name="mode">
+                <label for="voice-mode" class="mode-label">
+                    <i class="fas fa-microphone"></i> Voice mode
+                </label>
+            </div>
+        </div>
+
+        <!-- Translation Area -->
+        <main class="translation-area">
+            <!-- Source Section -->
+            <div class="translation-card">
+                <div class="language-select-wrapper">
+                    <select id="source-lang" class="language-select">
+                        <option value="en-GB">English</option>
+                        <option value="es-ES">Spanish</option>
+                        <option value="fr-FR">French</option>
+                        <option value="de-DE">German</option>
+                        <option value="it-IT">Italian</option>
+                        <option value="hi-IN">Hindi</option>
+                        <option value="ja-JP">Japanese</option>
+                        <option value="ko-KR">Korean</option>
+                        <option value="zh-CN">Chinese (Simplified)</option>
+                    </select>
+                    <i class="fas fa-chevron-down select-icon"></i>
+                </div>
+                <div class="input-wrapper">
+                    <textarea id="source-text" placeholder="Enter text here..."></textarea>
+                    <button id="mic-btn" class="mic-btn hidden" title="Speak">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Arrow Icon -->
+            <div class="exchange-icon">
+                <i class="fas fa-arrow-right"></i>
+            </div>
+
+            <!-- Target Section -->
+            <div class="translation-card">
+                <div class="language-select-wrapper">
+                    <select id="target-lang" class="language-select">
+                        <option value="es-ES">Spanish</option>
+                        <option value="en-GB">English</option>
+                        <option value="fr-FR">French</option>
+                        <option value="de-DE">German</option>
+                        <option value="it-IT">Italian</option>
+                        <option value="hi-IN">Hindi</option>
+                        <option value="ja-JP">Japanese</option>
+                        <option value="ko-KR">Korean</option>
+                        <option value="zh-CN">Chinese (Simplified)</option>
+                    </select>
+                    <i class="fas fa-chevron-down select-icon"></i>
+                </div>
+                <div class="input-wrapper">
+                    <textarea id="target-text" readonly placeholder="Converted text shows here..."></textarea>
+                </div>
+                <div class="action-buttons">
+                    <button id="copy-btn" title="Copy translation">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <div class="translate-btn-container">
+            <button id="translate-btn">Translate</button>
+        </div>
+
+        <!-- Feedback FAB -->
+        <button id="feedback-fab" class="feedback-fab" title="Feedback">
+            <i class="fas fa-exclamation"></i>
+        </button>
+
+        <!-- Feedback Modal -->
+        <div id="feedback-modal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Feedback</h2>
+                    <span class="close-modal">&times;</span>
+                </div>
+                <form id="feedback-form">
+                    <div class="form-group">
+                        <label for="full-name">Full Name</label>
+                        <input type="text" id="full-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="problem">Problem</label>
+                        <textarea id="problem" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="suggestion">Any Suggestion</label>
+                        <textarea id="suggestion" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

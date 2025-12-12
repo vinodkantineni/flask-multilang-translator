@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+feedback.csv
+.env
+.DS_Store
